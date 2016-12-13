@@ -129,7 +129,7 @@ class Wallet {
                     signature: data.WMI_SIGNATURE
                 }
             } 
-            else if(data.WMI_ORDER_STATE != "ACCEPTED") {
+            else if(data.WMI_ORDER_STATE.toUpperCase() != "ACCEPTED") {
                 err = new Error('Order was not accepted');
                 meta = {
                     reason: 'state',
