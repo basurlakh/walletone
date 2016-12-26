@@ -116,7 +116,7 @@ class Wallet {
             
             let fail = (err, meta) => {                
                 if(onError) {
-                    onError(err, meta);
+                    onError(req, err, meta);
                 }
                 
                 return res.send(this.answer(err));
@@ -153,7 +153,7 @@ class Wallet {
                 return ok();
             }
             
-            let result = fn.call(this, req.body, callback);
+            let result = fn.call(this, req, req.body, callback);
             
             if(result && typeof result == 'object') {
                 result.then(() => {
