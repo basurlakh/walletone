@@ -20,7 +20,11 @@ class Wallet {
     }
     
     getFormFields(data) {
-        data = _.merge(this.defaults, data)
+
+        for (let key in this.defaults) {
+            data[key] = this.defaults[key];
+        }
+
         delete data.WMI_SIGNATURE;
         
         let fields = [];
